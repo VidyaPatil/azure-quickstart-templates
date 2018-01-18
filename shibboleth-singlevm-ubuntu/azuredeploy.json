@@ -54,7 +54,7 @@
     "newStorageAccountName": "[concat(uniquestring(resourceGroup().id), 'shs')]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "ubuntuOSVersion": "16.04",
+    "ubuntuOSVersion": "17.10",
     "OSDiskName": "[concat(parameters('uniqueNamePrefix'),'Disk')]",
     "nicName": "[concat(parameters('uniqueNamePrefix'),'Nic')]",
     "addressPrefix": "10.0.0.0/16",
