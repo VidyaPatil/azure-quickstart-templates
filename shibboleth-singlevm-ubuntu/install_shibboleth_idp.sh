@@ -15,6 +15,9 @@ mkdir /usr/share/tomcat8/keystore
 keytool -genkey -alias tomcat -keyalg RSA -keystore /usr/share/tomcat8/keystore/server.keystore -keysize 2048 -storepass $SSLKEYPASSWORD -keypass $SSLKEYPASSWORD -dname "cn=testname, ou=shibbolethOU, o=shibbolethO, c=US"
 sed -i '/redirectPort="8443"/a  <Connector port="8443"  protocol="org.apache.coyote.http11.Http11NioProtocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true"  clientAuth="false" sslProtocol="TLS" address="0.0.0.0" keystoreFile="/\usr/\share\/tomcat8/\keystore/\server.keystore" keystorePass="'$SSLKEYPASSWORD'"/>' /var/lib/tomcat8/conf/server.xml
 
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+echo JAVA_HOME='"'$JAVA_HOME'"' >> /etc/environment
+source /etc/environment
 
 echo export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 >> /etc/profile
 echo export CATALINA_HOME=/var/lib/tomcat8 >> /etc/profile
